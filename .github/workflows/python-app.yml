@@ -15,14 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: reviewdog/action-setup@v1
-      with:
-        reviewdog_version: latest
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - uses: reviewdog/action-setup@v1
+    - with:
+        reviewdog_version: latest
+    - run: reviewdog -version
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
