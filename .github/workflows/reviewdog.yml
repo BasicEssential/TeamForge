@@ -1,0 +1,18 @@
+
+name: ReviewDog
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+   build:
+      runs-on: ubuntu-latest
+   
+      steps:
+      - uses: reviewdog/action-setup@v1
+      - name: review
+        with:
+          reviewdog_version: latest

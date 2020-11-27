@@ -1,8 +1,0 @@
-inputs:
-  reviewdog_version:
-    description: 'reviewdog version. [latest,nightly,vX.Y.Z]'
-    default: 'latest'
-    
-  steps:
-  - uses: reviewdog/action-setup@v1
-  - run: reviewdog -version
