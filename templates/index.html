@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+{% include 'header.html' %}
+{% endblock %}
+
+<body>
+
+<!-- start loader -->
+<div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+<!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+    </div>
+    <!-- End container-fluid-->
+
+<div class="content-wrapper">
+<div class="container-fluid">
+
+{% block topmenu %}
+{% include 'top_menu.html' %}
+{% endblock %}
+
+{% block bcrums %}
+{% include 'bcrums.html' %}
+{% endblock %}
+
+{% block body %}
+{% include 'teamdashboard.html' %}
+{% endblock %}
+
+</div>
+</div>
+<!--End content-wrapper-->
+   <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+	<!--Start footer-->
+	<footer class="footer">
+      <div class="container">
+        <div class="text-center">
+          <!--Что-то написать?-->
+        </div>
+      </div>
+    </footer>
+	<!--End footer-->
+
+
+
+
+
+<!-- Bootstrap core JavaScript-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+<!-- simplebar js -->
+<script type="text/javascript" src="{{ url_for('static', filename='plugins/simplebar/js/simplebar.js') }}"></script>
+<!-- horizontal-menu js -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/horizontal-menu.js') }}"></script>
+
+<!-- Custom scripts -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/app-script.js') }}"></script>
+
+
+
+
+</body>
+</html>
