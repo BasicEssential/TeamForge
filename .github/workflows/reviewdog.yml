@@ -16,3 +16,4 @@ jobs:
       - name: review
         with:
           reviewdog_version: latest
+      - run: reviewdog -version
