@@ -11,13 +11,12 @@ app = Flask(__name__,
 
 @app.route('/')
 def index():
-    menuList=[("DashBoard", ["s1", "s1"]),
+    menuList = [("DashBoard", ["s1", "s1"]),
                 ("Команда", ["s1", "s1"]),
                 ("Персона", ["s1", "s1"]),
                 ("Траектории", ["s1", "s1"]),
                 ("Методология", ["s1", "s1"]),
-                ("Расписание", ["s1", "s1"])
-                ]
+                ("Расписание", ["s1", "s1"])]
 
     appName = conf.APPNAME
     menuList = menuList
