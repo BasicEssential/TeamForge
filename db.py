@@ -13,9 +13,11 @@ SKILLS = 'skills'
 DB_QUERY = {
 "SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
 "GRP_SELECT": """SELECT {GRP_COLS_V}, {AGGR_COLS}
-              FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS}""",
+              FROM {TABLE} WHERE 1=1 {CONDS} 
+              GROUP BY {GRP_COLS}""",
 "GRP_HAV_SELECT": """SELECT {GRP_COLS_V}, {AGGR_COLS}
-                  FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS} HAVING {HCOND}""",
+                  FROM {TABLE} WHERE 1=1 {CONDS} 
+                  GROUP BY {GRP_COLS} HAVING {HCOND}""",
 "DIST_SELECT": "SELECT DISTINCT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
 "LIM_SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS} LIMIT {LIM}",
 "INSERT": "INSERT INTO {TABLE}(COLS) VALUE ({VALUES})",
@@ -47,19 +49,19 @@ class SqlLiteDatabase:
         :return:
         """
         metadata = MetaData()
-        staff = Table(STAFF, metadata,
+        staff = Table(STAFF,
+                      metadata,
                       Column('id', Integer, primary_key=True),
                       Column('first_name', String),
                       Column('last_name', String),
                       Column('personal_type', String),
-                      Column('skill_id', None, ForeignKey('skills.id'))
-                      )
+                      Column('skill_id', None, ForeignKey('skills.id')))
 
-        skills = Table(SKILLS, metadata,
-                        Column('id', Integer, primary_key=True),
-                        Column('skill', String, nullable=False),
-                        Column('description', String)
-                        )
+        skills = Table(SKILLS,
+                       metadata,
+                       Column('id', Integer, primary_key=True),
+                       Column('skill', String, nullable=False),
+                       Column('description', String))
         try:
             metadata.create_all(self.db_engine)
             print("Tables created")
@@ -69,7 +71,8 @@ class SqlLiteDatabase:
 
     # Insert, Update, Delete
     def execute_query(self, query=''):
-        if query == '': return
+        if query == '':
+            return
 
         with self.db_engine.connect() as connection:
             try:
@@ -96,8 +99,11 @@ if "__main__" == __name__:
     SqlLiteDatabase(SQLITE, DB).execute_query("drop table staff")
     SqlLiteDatabase(SQLITE, DB).execute_query("drop table skills")
     SqlLiteDatabase(SQLITE, DB).create_db_tables()
-    SqlLiteDatabase(SQLITE, DB).execute_query("insert into staff(id, first_name, last_name, personal_type, skill_id)\
+    SqlLiteDatabase(SQLITE, DB).execute_query("insert into \
+                                              staff(id, first_name, last_name, personal_type, skill_id)\
                                               values (1, 'Artem', 'Seleznev', 'Lead', 1)")
-    SqlLiteDatabase(SQLITE, DB).execute_query("insert into staff(id, first_name, last_name, personal_type, skill_id) \
+    SqlLiteDatabase(SQLITE, DB).execute_query("insert into \
+                                              staff(id, first_name, last_name, personal_type, skill_id) \
                                               values (2, 'Sen', 'Seniorkin', 'Senior Pomidor', 2)")
     SqlLiteDatabase(SQLITE, DB).print_all_data("staff")
+    
