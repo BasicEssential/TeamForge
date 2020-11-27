@@ -1,15 +1,12 @@
 name: reviewdog
 on:
   push:
-    branches:
-      - main
   pull_request:
 jobs:
-  misspell:
-    name: runner / misspell
+  pycodestyle:
+    name: pycodestyle
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code.
-        uses: actions/checkout@v1
-      - name: misspell
-        uses: reviewdog/action-misspell@v1
+    - uses: actions/checkout@master
+    - name: pycodestyle
+      uses: ankitvgupta/pycodestyle-action@master
