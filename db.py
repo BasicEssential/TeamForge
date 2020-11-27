@@ -11,17 +11,16 @@ SKILLS = 'skills'
 
 # Message
 DB_QUERY = {
-"SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}", \
-"""GRP_SELECT": "SELECT {GRP_COLS_V}, {AGGR_COLS} 
-FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS}""", \
-"""GRP_HAV_SELECT": "SELECT {GRP_COLS_V}, {AGGR_COLS} 
-FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS} HAVING {HCOND}""", \
-"DIST_SELECT": "SELECT DISTINCT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}", \
-"LIM_SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS} LIMIT {LIM}", \
-"INSERT": "INSERT INTO {TABLE}(COLS) VALUE ({VALUES})", \
-"DROP": "DROP TABLE {TABLE}" \
+"SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
+"""GRP_SELECT": "SELECT {GRP_COLS_V}, {AGGR_COLS}
+FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS}""",
+"""GRP_HAV_SELECT": "SELECT {GRP_COLS_V}, {AGGR_COLS}
+FROM {TABLE} WHERE 1=1 {CONDS} GROUP BY {GRP_COLS} HAVING {HCOND}""",
+"DIST_SELECT": "SELECT DISTINCT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
+"LIM_SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS} LIMIT {LIM}",
+"INSERT": "INSERT INTO {TABLE}(COLS) VALUE ({VALUES})",
+"DROP": "DROP TABLE {TABLE}"
 }
-
 
 
 class SqlLiteDatabase:
@@ -100,8 +99,6 @@ if "__main__" == __name__:
     SqlLiteDatabase(SQLITE, DB).execute_query("drop table staff")
     SqlLiteDatabase(SQLITE, DB).execute_query("drop table skills")
     SqlLiteDatabase(SQLITE, DB).create_db_tables()
-
     SqlLiteDatabase(SQLITE, DB).execute_query("insert into staff(id, first_name, last_name, personal_type, skill_id) values (1, 'Artem', 'Seleznev', 'Lead', 1)")
     SqlLiteDatabase(SQLITE, DB).execute_query("insert into staff(id, first_name, last_name, personal_type, skill_id) values (2, 'Sen', 'Seniorkin', 'Senior Pomidor', 2)")
-
     SqlLiteDatabase(SQLITE, DB).print_all_data("staff")
