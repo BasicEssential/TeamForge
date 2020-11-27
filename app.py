@@ -37,7 +37,7 @@ def users(teamname):
 
 
 def some_func(var, l = [], a = 1):
-    return var, a, 00000
+    return var, a, 00000, '111111'
 
 if __name__ == "__main__":
     app.run(host=conf.HOST, port=conf.PORT, debug=True)
