@@ -11,12 +11,12 @@ app = Flask(__name__,
 
 @app.route('/')
 def index():
-    menuList = [("DashBoard", ["s1", "s1"]), 
-                ("Команда", ["s1", "s1"]), 
-                ("Персона", ["s1", "s1"]), 
-                ("Траектории", ["s1", "s1"]), 
+    menuList=[("DashBoard", ["s1", "s1"]),
+                ("Команда", ["s1", "s1"]),
+                ("Персона", ["s1", "s1"]),
+                ("Траектории", ["s1", "s1"]),
                 ("Методология", ["s1", "s1"]),
-                ("Расписание", ["s1", "s1"]) 
+                ("Расписание", ["s1", "s1"])
                 ]
 
     appName = conf.APPNAME
@@ -24,20 +24,18 @@ def index():
     menupage = "TeamDash"
     crums = ["Dashboard", menupage]
 
-    return render_template(['index.html', 'top_menu.html', 'bcrums.html'], 
-                           appName=appName, 
-                           menuList=menuList, 
-                           menupage=menupage, 
-                           crums=crums 
+    return render_template(['index.html', 'top_menu.html', 'bcrums.html'],
+                           appName=appName,
+                           menuList=menuList,
+                           menupage=menupage,
+                           crums=crums
                            )
+
 
 @app.route('/team-<teamname>/members')
 def users(teamname):
-    return f'SHOW YOUR TEAMMATE IN TEAM {teamname}'
+    return f"SHOW YOUR TEAMMATE IN TEAM {teamname}"
 
 
-def some_func(var, l = [], a = 1):
-    return var, a, 00000, '111111'
-
-if __name__ == "__main__":
+if __name__=="__main__":
     app.run(host=conf.HOST, port=conf.PORT, debug=True)
