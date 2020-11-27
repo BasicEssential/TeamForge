@@ -11,12 +11,12 @@ app = Flask(__name__,
 
 @app.route('/')
 def index():
-    menuList = [("DashBoard", ["s1", "s1"]), \
-                ("Команда", ["s1", "s1"]), \
-                ("Персона", ["s1", "s1"]), \
-                ("Траектории", ["s1", "s1"]), \
-                ("Методология", ["s1", "s1"]),\
-                ("Расписание", ["s1", "s1"]) \
+    menuList = [("DashBoard", ["s1", "s1"]), 
+                ("Команда", ["s1", "s1"]), 
+                ("Персона", ["s1", "s1"]), 
+                ("Траектории", ["s1", "s1"]), 
+                ("Методология", ["s1", "s1"]),
+                ("Расписание", ["s1", "s1"]) 
                 ]
 
     appName = conf.APPNAME
@@ -24,11 +24,11 @@ def index():
     menupage = "TeamDash"
     crums = ["Dashboard", menupage]
 
-    return render_template(['index.html', 'top_menu.html', 'bcrums.html'], \
-                           appName = appName, \
-                           menuList = menuList, \
-                           menupage = menupage, \
-                           crums = crums \
+    return render_template(['index.html', 'top_menu.html', 'bcrums.html'], 
+                           appName=appName, 
+                           menuList=menuList, 
+                           menupage=menupage, 
+                           crums=crums 
                            )
 
 @app.route('/team-<teamname>/members')
