@@ -36,7 +36,7 @@ def users(teamname):
     return f'SHOW YOUR TEAMMATE IN TEAM {teamname}'
 
 
-def some_func(var, l = []):
+def some_func(var, l = [], a = 1):
     return var
 
 if __name__ == "__main__":
