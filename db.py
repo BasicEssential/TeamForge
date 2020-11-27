@@ -18,8 +18,10 @@ DB_QUERY = {
             "GRP_HAV_SELECT": """SELECT {GRP_COLS_V}, {AGGR_COLS}
                               FROM {TABLE} WHERE 1=1 {CONDS}
                               GROUP BY {GRP_COLS} HAVING {HCOND}""",
-            "DIST_SELECT": "SELECT DISTINCT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
-            "LIM_SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS} LIMIT {LIM}",
+            "DIST_SELECT": """SELECT DISTINCT {COLS} FROM {TABLE}\
+                              WHERE 1=1 {CONDS}""",
+            "LIM_SELECT": """SELECT {COLS} FROM {TABLE}\
+                             WHERE 1=1 {CONDS} LIMIT {LIM}""",
             "INSERT": "INSERT INTO {TABLE}(COLS) VALUE ({VALUES})",
             "DROP": "DROP TABLE {TABLE}"}
 
@@ -92,7 +94,7 @@ class SqlLiteDatabase:
                     print(row)  # print(row[0], row[1], row[2])
                 result.close()
         print("\n")
-        
+
 
 if "__main__" == __name__:
     SqlLiteDatabase(SQLITE, DB).execute_query("drop table staff")
