@@ -36,5 +36,8 @@ def users(teamname):
     return f'SHOW YOUR TEAMMATE IN TEAM {teamname}'
 
 
+def some_func(var, l = []):
+    return var
+
 if __name__ == "__main__":
     app.run(host=conf.HOST, port=conf.PORT, debug=True)
