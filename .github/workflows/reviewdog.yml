@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: python styleguide
-      uses: wemake-services/wemake-python-styleguide
+    - name: wemake-python-styleguide
+      uses: wemake-services/wemake-python-styleguide@0.14.1
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          PRECOMMAND_MESSAGE: You have style errors. See them below.
