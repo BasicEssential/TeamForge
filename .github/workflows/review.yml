@@ -1,4 +1,4 @@
-name: reviewdog
+name: Code review
 on:
   push:
   pull_request:
@@ -14,4 +14,3 @@ jobs:
         reporter: 'github-pr-review'
       env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         PRECOMMAND_MESSAGE: You have style errors. See them below.
