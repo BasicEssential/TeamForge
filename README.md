@@ -1,2 +1,3 @@
 # TeamForge
-Project is aimed for developing ang growing teams (based on talent management)
+
+Project is aimed for developing and growing teams (based on talent management)
