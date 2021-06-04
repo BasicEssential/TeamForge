@@ -147,3 +147,6 @@ typings/
 
 # Optional eslint cache
 .eslintcache
+
+.github
+.idea

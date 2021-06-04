@@ -13,11 +13,11 @@ SKILLS = 'skills'
 DB_QUERY = {
             "SELECT": "SELECT {COLS} FROM {TABLE} WHERE 1=1 {CONDS}",
             "GRP_SELECT": """SELECT {GRP_COLS_V}, {AGGR_COLS}
-                          FROM {TABLE} WHERE 1=1 {CONDS}
-                          GROUP BY {GRP_COLS}""",
+                             FROM {TABLE} WHERE 1=1 {CONDS}
+                             GROUP BY {GRP_COLS}""",
             "GRP_HAV_SELECT": """SELECT {GRP_COLS_V}, {AGGR_COLS}
-                              FROM {TABLE} WHERE 1=1 {CONDS}
-                              GROUP BY {GRP_COLS} HAVING {HCOND}""",
+                                 FROM {TABLE} WHERE 1=1 {CONDS}
+                                 GROUP BY {GRP_COLS} HAVING {HCOND}""",
             "DIST_SELECT": """SELECT DISTINCT {COLS} FROM {TABLE}\
                               WHERE 1=1 {CONDS}""",
             "LIM_SELECT": """SELECT {COLS} FROM {TABLE}\
@@ -39,7 +39,7 @@ class SqlLiteDatabase:
         if dbtype in self.DB_ENGINE.keys():
             engine_url = self.DB_ENGINE[dbtype].format(DB=dbname)
             self.db_engine = create_engine(engine_url)
-            print(self.db_engine)
+            #print(self.db_engine)
         else:
             print("DBType is not found in DB_ENGINE")
 
@@ -72,6 +72,13 @@ class SqlLiteDatabase:
 
     # Insert, Update, Delete
     def execute_query(self, query=''):
+        """
+        Simple execution of script
+
+        :param query: sql script
+        :return:
+            None
+        """
         if query == '':
             return
 
@@ -91,15 +98,15 @@ class SqlLiteDatabase:
                 print(e)
             else:
                 for row in result:
-                    print(row)  # print(row[0], row[1], row[2])
+                    print(" | ".join([str(e) for e in row]))  # print(row[0], row[1], row[2])
                 result.close()
         print("\n")
 
 
 if "__main__" == __name__:
-    SqlLiteDatabase(SQLITE, DB).execute_query("drop table staff")
-    SqlLiteDatabase(SQLITE, DB).execute_query("drop table skills")
-    SqlLiteDatabase(SQLITE, DB).create_db_tables()
+    # SqlLiteDatabase(SQLITE, DB).execute_query("drop table staff")
+    # SqlLiteDatabase(SQLITE, DB).execute_query("drop table skills")
+    # SqlLiteDatabase(SQLITE, DB).create_db_tables()
     # SqlLiteDatabase(SQLITE, DB)\
     #                .execute_query("insert into \
     #                staff(id, first_name, last_name, personal_type, skill_id)\
